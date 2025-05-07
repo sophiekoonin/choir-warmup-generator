@@ -53,7 +53,14 @@ function render() {
     renderSection("Breathing", 3);
     renderSection("Sounds", 3);
     renderSection("Vocal", 3);
-    renderSection("Song", 1);
+
+    // Either a song or a round
+    const coinToss = Math.floor(Math.random() * 2) == 0
+    if (coinToss) {
+      renderSection("Song", 1);
+    } else {
+      renderSection("Round", 1);
+    }
   }
 }
 
@@ -77,7 +84,7 @@ function pickSome(type, count) {
     .slice(0, howmany)
     .map((e) => {
       const item = filteredWarmups[e];
-      return `${item.activity}${
+      return `${item.activity.replace(/\n/g, '<br/>')}${
         item.link
           ? ` <a href="${item.link}" target="_blank" rel="noopener noreferrer">(link)</a>`
           : ""
