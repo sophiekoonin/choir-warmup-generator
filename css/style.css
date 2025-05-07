@@ -1,0 +1,12 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+.wrapper {
+  text-align: center;
+}
+
+.button {
+  font-family: 'Montserrat';
+  position: absolute;
+  top: 50%;
+}
